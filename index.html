@@ -291,6 +291,148 @@ img{max-width:100%}
   .footer-text-logo{font-size:25px}
 }
 </style>
+
+<style>
+/* Final CTA: prevent the large yellow section from creating horizontal overflow */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.final {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.final .wrap {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.final h2 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+@media (max-width: 900px) {
+  .final {
+    padding: 70px 0 65px;
+  }
+
+  .final .wrap {
+    width: calc(100% - 40px);
+  }
+
+  .final h2 {
+    font-size: clamp(52px, 11vw, 82px);
+    line-height: .86;
+    letter-spacing: -.06em;
+  }
+
+  .final p {
+    max-width: 420px;
+    font-size: 11px;
+  }
+
+  .final .btn {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  .final {
+    padding: 62px 0 58px;
+  }
+
+  .final .wrap {
+    width: calc(100% - 32px);
+  }
+
+  .final h2 {
+    font-size: clamp(46px, 14vw, 68px);
+  }
+}
+</style>
+
+<style>
+/* Hard mobile/tablet fix for the final yellow CTA */
+@media (max-width: 900px){
+  .final{
+    width:100vw !important;
+    max-width:100vw !important;
+    margin:0 !important;
+    padding:64px 0 58px !important;
+    overflow:hidden !important;
+    text-align:center !important;
+  }
+
+  .final .wrap{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:0 24px !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+  }
+
+  .final .label{
+    max-width:100%;
+    box-sizing:border-box;
+    white-space:normal;
+  }
+
+  .final h2{
+    display:block;
+    width:100% !important;
+    max-width:100% !important;
+    margin:18px auto 24px !important;
+    padding:0 !important;
+    font-size:clamp(42px,8vw,70px) !important;
+    line-height:.88 !important;
+    letter-spacing:-.06em !important;
+    white-space:normal !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+  }
+
+  .final p{
+    width:100%;
+    max-width:420px !important;
+    margin:0 auto 24px !important;
+    box-sizing:border-box;
+  }
+
+  .final .btn{
+    display:inline-flex !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+  }
+}
+
+@media (max-width:600px){
+  .final .wrap{
+    padding:0 16px !important;
+  }
+
+  .final h2{
+    font-size:clamp(40px,12vw,62px) !important;
+  }
+}
+</style>
+
+<style>
+/* Remove the yellow decorative shape protruding from the top-left of the
+   READY WHEN YOU ARE section. It belongs to the Quick Quote section. */
+.quick-quote::after{
+  display:none !important;
+  content:none !important;
+}
+</style>
 </head><body>
 <header class="nav"><div class="navin"><a class="logo" href="#" aria-label="AJ MEDIA">AJ MEDIA</a><nav class="links"><a href="#about">About</a><a href="#services">Services</a><a href="#work">Case Studies</a><a href="#faq">FAQ</a></nav><a class="btn red" href="https://wa.me/919037451763?text=Hi%20AJ%20MEDIA%2C%20I%27d%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Start a project ↗</a></div></header>
 <main>
@@ -312,93 +454,80 @@ img{max-width:100%}
 <div class="wrap">
 <div class="quote-intro">
 <div><span class="label" style="color:var(--y);border-color:var(--y)">QUICK QUOTE</span><h2>Know what it<br>could cost.</h2></div>
-<p>Answer seven quick questions. No long forms, no sales call required. We'll calculate an instant ballpark price based on what you need.</p>
+<p>Answer a few quick questions. No forms, no sales call required. We'll calculate an instant ballpark price based on what you need.</p>
 </div>
+
 <div class="quote-box">
-<div class="quote-progress"><span id="quoteCount">01 / 07</span><div class="quote-progress-line"><div class="quote-progress-fill" id="quoteFill"></div></div><span id="quoteLabel">COUNTRY</span></div>
+<div class="quote-progress">
+  <span id="quoteCount">01 / 05</span>
+  <div class="quote-progress-line"><div class="quote-progress-fill" id="quoteFill"></div></div>
+  <span id="quoteLabel">COUNTRY</span>
+</div>
 
-
+<div class="quote-step active" data-step="0">
+  <div class="quote-step-no">01 — LOCATION</div>
+  <h3>Where is your business based?</h3>
+  <div class="quote-options">
+    <button class="quote-option" data-value="india" data-name="India">India</button>
+    <button class="quote-option" data-value="world" data-name="Rest of the world">Rest of the world</button>
+  </div>
+</div>
 
 <div class="quote-step" data-step="1">
-<div class="quote-step-no">02 — FIRST THINGS FIRST</div>
-<h3>What are we building?</h3>
-<div class="quote-options">
-<button class="quote-option" data-price="25000">Business website</button>
-<button class="quote-option" data-price="45000">E-commerce website</button>
-<button class="quote-option" data-price="35000">Shopify store</button>
-<button class="quote-option" data-price="20000">Website redesign</button>
-</div>
-</div>
-
-<div class="quote-step" data-step="2">
-<div class="quote-step-no">03 — SIZE MATTERS</div>
-<h3>How many pages do you need?</h3>
-<div class="quote-options">
-<button class="quote-option" data-price="0">1–5 pages</button>
-<button class="quote-option" data-price="8000">6–10 pages</button>
-<button class="quote-option" data-price="18000">11–20 pages</button>
-<button class="quote-option" data-price="30000">20+ pages</button>
-</div>
+  <div class="quote-step-no">02 — PROJECT</div>
+  <h3>What do you need?</h3>
+  <div class="quote-options">
+    <button class="quote-option" data-value="business" data-name="Business website">Business website</button>
+    <button class="quote-option" data-value="ecommerce" data-name="E-commerce website">E-commerce website</button>
+    <button class="quote-option" data-value="redesign" data-name="Website redesign">Website redesign</button>
+  </div>
 </div>
 
-<div class="quote-step" data-step="3">
-<div class="quote-step-no">04 — THE SHOP</div>
-<h3>Do you need products or online selling?</h3>
-<div class="quote-options">
-<button class="quote-option" data-price="0">No, it's informational</button>
-<button class="quote-option" data-price="12000">Yes, up to 50 products</button>
-<button class="quote-option" data-price="25000">Yes, 50–250 products</button>
-<button class="quote-option" data-price="40000">Large catalogue</button>
-</div>
-</div>
-
-<div class="quote-step" data-step="4">
-<div class="quote-step-no">05 — PLATFORM</div>
-<h3>Where do you want to build it?</h3>
-<div class="quote-options">
-<button class="quote-option" data-price="0">Custom website</button>
-<button class="quote-option" data-price="5000">Shopify</button>
-<button class="quote-option" data-price="3000">Wix</button>
-<button class="quote-option" data-price="7000">Webflow</button>
-</div>
+<div class="quote-step" data-step="2" data-conditional="pages">
+  <div class="quote-step-no">03 — SIZE</div>
+  <h3>How many pages do you need?</h3>
+  <div class="quote-options">
+    <button class="quote-option" data-value="small" data-name="1–5 pages" data-price="0">1–5 pages</button>
+    <button class="quote-option" data-value="medium" data-name="6–10 pages" data-price="5000">6–10 pages</button>
+    <button class="quote-option" data-value="large" data-name="11–20 pages" data-price="10000">11–20 pages</button>
+    <button class="quote-option" data-value="xl" data-name="20+ pages" data-price="15000">20+ pages</button>
+  </div>
 </div>
 
-<div class="quote-step" data-step="5">
-<div class="quote-step-no">06 — MAKE IT YOURS</div>
-<h3>How much custom work do you want?</h3>
-<div class="quote-options">
-<button class="quote-option" data-price="0">Clean & simple</button>
-<button class="quote-option" data-price="10000">Custom design</button>
-<button class="quote-option" data-price="20000">Advanced interactions</button>
-<button class="quote-option" data-price="35000">Fully bespoke</button>
-</div>
+<div class="quote-step" data-step="3" data-conditional="selling">
+  <div class="quote-step-no">03 — ONLINE SELLING</div>
+  <h3>How big will your online store be?</h3>
+  <div class="quote-options">
+    <button class="quote-option" data-value="small" data-name="Up to 25 products" data-price="0">Up to 25 products</button>
+    <button class="quote-option" data-value="medium" data-name="26–100 products" data-price="5000">26–100 products</button>
+    <button class="quote-option" data-value="large" data-name="101–250 products" data-price="10000">101–250 products</button>
+    <button class="quote-option" data-value="xl" data-name="250+ products" data-price="15000">250+ products</button>
+  </div>
 </div>
 
-<div class="quote-step" data-step="6">
-<div class="quote-step-no">07 — AFTER LAUNCH</div>
-<h3>Do you want us to manage it too?</h3>
-<div class="quote-options">
-<button class="quote-option" data-price="0">I'll manage it myself</button>
-<button class="quote-option" data-price="5000">Basic management</button>
-<button class="quote-option" data-price="10000">Regular management</button>
-<button class="quote-option" data-price="18000">Full Shopify management</button>
-</div>
+<div class="quote-step" data-step="4" data-conditional="custom">
+  <div class="quote-step-no">04 — CUSTOM WORK</div>
+  <h3>How much custom work do you need?</h3>
+  <div class="quote-options">
+    <button class="quote-option" data-value="basic" data-name="Basic" data-price="0">Basic</button>
+    <button class="quote-option" data-value="professional" data-name="Fully professional custom" data-price="10000">Fully professional custom</button>
+  </div>
 </div>
 
 <div class="quote-result" id="quoteResult">
-<div class="result-label">YOUR ESTIMATED PROJECT RANGE</div>
-<h3>You're looking at roughly</h3>
-<div class="price" id="quotePrice">₹0</div>
-<p>A ballpark estimate based on your answers. Your country determines the applicable package ceiling.</p>
-<div class="quote-breakdown" id="quoteBreakdown"></div>
-<a class="btn" style="background:var(--r);color:white;box-shadow:4px 4px 0 var(--n)" href="https://wa.me/919037451763?text=Hi%20AJ%20MEDIA%2C%20I%27d%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Let's build it →</a>
-<button class="quote-restart" id="quoteRestart">Start again</button>
-<div class="quote-note" id="quoteNote">Final pricing depends on the confirmed scope.</div>
+  <div class="result-label">YOUR ESTIMATED PROJECT RANGE</div>
+  <h3>Your website could cost</h3>
+  <div class="price" id="quotePrice">₹0</div>
+  <p id="quoteResultText">A ballpark estimate based on your answers.</p>
+  <div class="quote-breakdown" id="quoteBreakdown"></div>
+  <a class="btn" style="background:var(--r);color:white;box-shadow:4px 4px 0 var(--n)" href="https://wa.me/919037451763?text=Hi%20AJ%20MEDIA%2C%20I%27d%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Let's build it →</a>
+  <button class="quote-restart" id="quoteRestart">Start again</button>
+  <div class="quote-note" id="quoteNote">Final pricing depends on the confirmed scope.</div>
 </div>
 
 <div class="quote-next" id="quoteNext">
-<button class="quote-back" id="quoteBack" style="visibility:hidden">← Back</button>
-<button class="quote-next-btn" id="quoteNextBtn">Choose an option →</button>
+  <button class="quote-back" id="quoteBack" style="visibility:hidden">← Back</button>
+  <button class="quote-next-btn" id="quoteNextBtn">Choose an option →</button>
 </div>
 </div>
 </div>
@@ -415,67 +544,99 @@ if(track){
 </script>
 <script>
 (function(){
-  const steps=[...document.querySelectorAll('#quick-quote .quote-step')];
-  const opts=[...document.querySelectorAll('#quick-quote .quote-option')];
-  const next=document.getElementById('quoteNextBtn');
-  const back=document.getElementById('quoteBack');
-  const nextWrap=document.getElementById('quoteNext');
-  const fill=document.getElementById('quoteFill');
-  const count=document.getElementById('quoteCount');
-  const label=document.getElementById('quoteLabel');
-  const result=document.getElementById('quoteResult');
-  const price=document.getElementById('quotePrice');
-  const note=document.getElementById('quoteNote');
-  const breakdown=document.getElementById('quoteBreakdown');
-  const restart=document.getElementById('quoteRestart');
+  const box = document.querySelector('#quick-quote');
+  if(!box) return;
 
-  let current=0;
-  let answers={};
+  const allSteps = [...box.querySelectorAll('.quote-step')];
+  const next = document.getElementById('quoteNextBtn');
+  const back = document.getElementById('quoteBack');
+  const nextWrap = document.getElementById('quoteNext');
+  const fill = document.getElementById('quoteFill');
+  const count = document.getElementById('quoteCount');
+  const label = document.getElementById('quoteLabel');
+  const result = document.getElementById('quoteResult');
+  const price = document.getElementById('quotePrice');
+  const note = document.getElementById('quoteNote');
+  const resultText = document.getElementById('quoteResultText');
+  const breakdown = document.getElementById('quoteBreakdown');
+  const restart = document.getElementById('quoteRestart');
 
-  const labels=[
-    'COUNTRY','PROJECT TYPE','PAGES','COMMERCE',
-    'PLATFORM','CUSTOM WORK','MANAGEMENT'
-  ];
+  let current = 0;
+  let answers = {};
 
-  function render(){
-    steps.forEach((step,i)=>step.classList.toggle('active',i===current));
-    count.textContent=String(current+1).padStart(2,'0')+' / 07';
-    label.textContent=labels[current];
-    fill.style.width=((current+1)/7*100)+'%';
-    back.style.visibility=current===0?'hidden':'visible';
-    next.textContent=answers[current]?'Next →':'Choose an option →';
+  function visibleSteps(){
+    const project = answers[1]?.value;
+    return allSteps.filter(step=>{
+      const condition = step.dataset.conditional;
+      if(condition === 'pages') return project !== 'ecommerce';
+      if(condition === 'selling') return project === 'ecommerce';
+      if(condition === 'custom') return project !== 'redesign';
+      return true;
+    });
   }
 
-  opts.forEach(option=>{
-    option.addEventListener('click',()=>{
-      const step=Number(option.closest('.quote-step').dataset.step);
+  function render(){
+    const steps = visibleSteps();
 
-      document
-        .querySelectorAll('#quick-quote [data-step="'+step+'"] .quote-option')
-        .forEach(x=>x.classList.remove('selected'));
+    // If the current step became hidden after a project-type choice,
+    // move directly to the next visible question.
+    if(current >= steps.length) current = steps.length - 1;
 
-      option.classList.add('selected');
+    allSteps.forEach(s=>s.classList.remove('active'));
+    const active = steps[current];
+    if(active) active.classList.add('active');
 
-      answers[step]={
-        name:option.textContent.replace(/\s+/g,' ').trim().replace(/\s+(₹|\$).*/,''),
-        price:Number(option.dataset.price||0),
-        country:option.dataset.country||null
-      };
+    const total = steps.length;
+    count.textContent = String(current + 1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
 
-      if(current<6){
+    const labels = steps.map(step=>{
+      if(step.dataset.step === '0') return 'COUNTRY';
+      if(step.dataset.step === '1') return 'PROJECT';
+      if(step.dataset.conditional === 'pages') return 'PAGES';
+      if(step.dataset.conditional === 'selling') return 'SELLING';
+      return 'CUSTOM';
+    });
+    label.textContent = labels[current] || 'ESTIMATE';
+    fill.style.width = ((current + 1) / total * 100) + '%';
+
+    back.style.visibility = current === 0 ? 'hidden' : 'visible';
+    next.textContent = answers[active?.dataset.step] ? 'Next →' : 'Choose an option →';
+  }
+
+  allSteps.forEach(step=>{
+    step.querySelectorAll('.quote-option').forEach(option=>{
+      option.addEventListener('click',()=>{
+        const stepNo = Number(step.dataset.step);
+
+        step.querySelectorAll('.quote-option').forEach(x=>x.classList.remove('selected'));
+        option.classList.add('selected');
+
+        answers[stepNo] = {
+          value: option.dataset.value || '',
+          name: option.dataset.name || option.textContent.trim(),
+          price: Number(option.dataset.price || 0)
+        };
+
+        // Country and project choices should move forward immediately.
         setTimeout(()=>{
-          current++;
-          render();
-        },180);
-      }else{
-        setTimeout(showResult,180);
-      }
+          const steps = visibleSteps();
+          if(current < steps.length - 1){
+            current++;
+            render();
+          }else{
+            showResult();
+          }
+        }, 160);
+      });
     });
   });
 
   next.addEventListener('click',()=>{
-    if(!answers[current]) return;
-    if(current<6){
+    const steps = visibleSteps();
+    const active = steps[current];
+    if(!active || !answers[Number(active.dataset.step)]) return;
+
+    if(current < steps.length - 1){
       current++;
       render();
     }else{
@@ -484,75 +645,136 @@ if(track){
   });
 
   back.addEventListener('click',()=>{
-    if(current>0){
+    if(current > 0){
       current--;
       render();
     }
   });
 
   function showResult(){
-    const country=answers[0]?.country;
-    const project=answers[1]?.name || '';
-    let total=Object.values(answers).reduce((sum,a)=>sum+a.price,0);
+    const country = answers[0]?.value;
+    const project = answers[1]?.value;
 
-    let currency='₹';
-    let low,high;
+    const basePrices = {
+      business: 25000,
+      ecommerce: 30000,
+      redesign: 20000
+    };
 
-    if(country==='india'){
-      currency='₹';
+    let total = basePrices[project] || 0;
 
-      // India: business website / Shopify / e-commerce core project
-      // cannot exceed ₹40,000.
-      if(/Business website|Shopify store|E-commerce website|Website redesign/i.test(project)){
-        total=Math.min(total,40000);
+    // Redesign pricing is based directly on the selected page count.
+    // India: ₹10k / ₹12.5k / ₹15k / ₹20k
+    // International: $200 / $250 / $300 / $350
+    if(project === 'redesign' && answers[2]){
+      const redesignIndia = {
+        small: 10000,
+        medium: 12500,
+        large: 15000,
+        xl: 20000
+      };
+      const redesignWorld = {
+        small: 200,
+        medium: 250,
+        large: 300,
+        xl: 350
+      };
+
+      if(country === 'india'){
+        total = redesignIndia[answers[2].value] || 10000;
+      }else{
+        total = redesignWorld[answers[2].value] || 200;
       }
-
-      low=Math.round(total*.9/1000)*1000;
-      high=Math.min(40000,Math.round(total*1.1/1000)*1000);
-    }else{
-      currency='$';
-
-      // International pricing: convert the internal estimate into an
-      // international package value and cap the project at $799.
-      total=Math.min(Math.max(Math.round(total/1000*20),399),799);
-      low=Math.max(399,Math.round(total*.9));
-      high=Math.min(799,Math.round(total*1.1));
+    }else if(project !== 'ecommerce' && answers[2]){
+      // Business website page pricing.
+      total += answers[2].price;
     }
 
-    price.textContent=
-      currency+low.toLocaleString('en-IN')+
-      ' – '+
-      currency+high.toLocaleString('en-IN');
+    // Selling/catalogue size only applies to ecommerce.
+    if(project === 'ecommerce' && answers[3]){
+      total += answers[3].price;
+    }
 
-    const countryName=country==='india'?'India':'Rest of the world';
+    // Custom work is the final question.
+    const customStep = allSteps.find(s=>s.dataset.step === '4');
+    const customAnswer = answers[Number(customStep.dataset.step)];
 
-    const chips=[
-      countryName,
-      ...Object.values(answers).slice(1).map(a=>a.name)
-    ];
+    // Keep the requested redesign page prices as the base quote. Professional
+    // custom work can add to other project types, but redesign remains within
+    // its stated page-based range.
+    if(project !== 'redesign' && customAnswer){
+      total += customAnswer.price;
+    }
 
-    breakdown.innerHTML=chips
+    let currency, low, high;
+
+    if(country === 'india'){
+      currency = '₹';
+      total = Math.min(total, 40000);
+
+      if(project === 'redesign'){
+        low = total;
+        high = total;
+      }else{
+        low = Math.max(15000, Math.round(total * .9 / 1000) * 1000);
+        high = Math.min(40000, Math.round(total * 1.1 / 1000) * 1000);
+      }
+    }else{
+      currency = '$';
+
+      if(project === 'redesign'){
+        low = total;
+        high = total;
+      }else{
+        total = Math.min(Math.max(Math.round(total / 1000 * 20), 399), 799);
+        low = Math.max(299, Math.round(total * .9));
+        high = Math.min(799, Math.round(total * 1.1));
+      }
+    }
+
+    price.textContent = currency + low.toLocaleString('en-IN') + ' – ' + currency + high.toLocaleString('en-IN');
+
+    const selected = [];
+    selected.push(answers[0]?.name || '');
+    selected.push(answers[1]?.name || '');
+
+    if(project === 'ecommerce'){
+      selected.push(answers[3]?.name || '');
+    }else{
+      selected.push(answers[2]?.name || '');
+    }
+
+    selected.push(customAnswer?.name || '');
+
+    breakdown.innerHTML = selected.filter(Boolean)
       .map(x=>'<span class="quote-chip">'+x+'</span>')
       .join('');
 
-    note.textContent=country==='india'
-      ? 'India pricing: business website / Shopify packages are capped at ₹40,000.'
-      : 'International pricing: business website / Shopify packages are capped at $799.';
+    if(country === 'india'){
+      note.textContent = 'Redesign pricing is based on page count: ₹10,000–₹20,000.';
+      resultText.textContent = 'Your instant estimate is based on the project type, scope and custom work selected.';
+    }else{
+      note.textContent = 'Redesign pricing is based on page count: $200–$350.';
+      resultText.textContent = 'Your instant estimate is based on the project type, scope and custom work selected.';
+    }
 
-    steps.forEach(step=>step.classList.remove('active'));
-    nextWrap.style.display='none';
+    allSteps.forEach(step=>step.classList.remove('active'));
+    nextWrap.style.display = 'none';
     result.classList.add('active');
-    fill.style.width='100%';
-    count.textContent='07 / 07';
-    label.textContent='ESTIMATE';
+    fill.style.width = '100%';
+    count.textContent = '✓';
+    label.textContent = 'ESTIMATE';
   }
 
   restart.addEventListener('click',()=>{
-    answers={};
-    current=0;
-    opts.forEach(o=>o.classList.remove('selected'));
+    answers = {};
+    current = 0;
+    allSteps.forEach(step=>{
+      step.classList.remove('active');
+      step.querySelectorAll('.quote-option').forEach(o=>o.classList.remove('selected'));
+    });
     result.classList.remove('active');
-    nextWrap.style.display='flex';
+    nextWrap.style.display = 'flex';
     render();
   });
 
