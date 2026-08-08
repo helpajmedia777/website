@@ -433,6 +433,40 @@ html, body {
   content:none !important;
 }
 </style>
+
+<style>
+/* Seamless portfolio/photo marquee */
+.marquee-viewport{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+}
+.marquee-viewport .mockups{
+  display:flex;
+  flex-wrap:nowrap;
+  width:max-content;
+  max-width:none;
+  gap:16px;
+  align-items:flex-end;
+  padding:0;
+  margin:0;
+  will-change:transform;
+  animation:portfolioMarquee 30s linear infinite;
+}
+.marquee-viewport:hover .mockups{
+  animation-play-state:paused;
+}
+@keyframes portfolioMarquee{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(calc(-1 * var(--marquee-distance)),0,0)}
+}
+@media(max-width:900px){
+  .marquee-viewport .mockups{gap:12px;animation-duration:26s}
+}
+@media(max-width:600px){
+  .marquee-viewport .mockups{gap:10px;animation-duration:24s}
+}
+</style>
 </head><body>
 <header class="nav"><div class="navin"><a class="logo" href="#" aria-label="AJ MEDIA">AJ MEDIA</a><nav class="links"><a href="#about">About</a><a href="#services">Services</a><a href="#work">Case Studies</a><a href="#faq">FAQ</a></nav><a class="btn red" href="https://wa.me/919037451763?text=Hi%20AJ%20MEDIA%2C%20I%27d%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Start a project ↗</a></div></header>
 <main>
@@ -535,12 +569,36 @@ html, body {
 <section class="final" id="contact"><div class="wrap"><span class="label">READY WHEN YOU ARE</span><h2>Let's build<br>something great.</h2><p>Have a project in mind? Let's turn it into something people remember.</p><a class="btn red" href="https://wa.me/919037451763?text=Hi%20AJ%20MEDIA%2C%20I%27d%20like%20to%20start%20a%20project." target="_blank" rel="noopener">Start a project →</a></div></section></main>
 
 <script>
-document.querySelectorAll('.fq').forEach(b=>b.onclick=()=>{let x=b.parentElement;document.querySelectorAll('.fi').forEach(i=>i!==x&&i.classList.remove('open'));x.classList.toggle('open')});
-const track=document.querySelector('.mockups');
-if(track){
+document.querySelectorAll('.fq').forEach(b=>b.onclick=()=>{
+  let x=b.parentElement;
+  document.querySelectorAll('.fi').forEach(i=>i!==x&&i.classList.remove('open'));
+  x.classList.toggle('open');
+});
+
+(function(){
+  const track=document.querySelector('.mockups');
+  if(!track) return;
+
   const originals=[...track.children];
-  originals.forEach(card=>track.appendChild(card.cloneNode(true)));
-}
+  if(!originals.length) return;
+
+  // Duplicate exactly one complete set of cards.
+  originals.forEach(card=>{
+    const clone=card.cloneNode(true);
+    clone.setAttribute('aria-hidden','true');
+    track.appendChild(clone);
+  });
+
+  function updateMarqueeDistance(){
+    // The track contains two identical sets. Half its scroll width is the
+    // exact distance between matching frames, so the loop is invisible.
+    track.style.setProperty('--marquee-distance',(track.scrollWidth/2)+'px');
+  }
+
+  requestAnimationFrame(updateMarqueeDistance);
+  window.addEventListener('load',updateMarqueeDistance);
+  window.addEventListener('resize',updateMarqueeDistance);
+})();
 </script>
 <script>
 (function(){
